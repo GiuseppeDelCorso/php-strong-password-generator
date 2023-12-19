@@ -1,11 +1,15 @@
 <?php
-$passwordLength = $_GET["passwordLength"] ?? "Visitatore";
+
+
+function generateRandomString($length = $msg)
+{
+    return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+}
+
+$passwordLength = $_GET["passwordLength"] ?? "Empty";
 $msg = "$passwordLength";
-
-$password = ["A", "B", "C", "D", "E", "F", "G"];
-
-
-
+echo $msg;
+$result = generateRandomString();
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +23,7 @@ $password = ["A", "B", "C", "D", "E", "F", "G"];
 
 <body>
     <h1><?php echo $msg ?></h1>
+    <h1><?php echo $result ?></h1>
     <a href="form.php">Torna alla pagina di inserimento</a>
 </body>
 
